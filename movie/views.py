@@ -16,7 +16,8 @@ def home(request):
         movies = Movie.objects.all()
     return render(request, "home.html", {
         "search_term": search_term,
-        "movies": movies
+        "movies": movies,
+        "title": "Home"
     })
 
 def about(request):

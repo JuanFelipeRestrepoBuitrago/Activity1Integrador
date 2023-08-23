@@ -1,73 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    
-</head>
-<body>
-    <div class="container bg-secondary">
-        <div class="container mt-5">
-            <h1 class="mb-3">Upcoming...</h1>
-            <div id="movieCarousel" class="carousel slide mb-3" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="/media/images/oppenheimer.jpeg" alt="Movie 1" class="d-block w-100" style="object-fit: cover;">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/media/images/spiderman.jpg" alt="Movie 2" class="d-block w-100" style="object-fit: cover;">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/media/images/john-wik.jpeg" alt="Movie 3" class="d-block w-100" style="object-fit: cover;">
-                    </div>
-                </div>
-                <a href="#movieCarousel" class="carousel-control-prev" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a href="#movieCarousel" class="carousel-control-next" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-3">Upcoming...</h1>
+    <div id="movieCarousel" class="carousel slide mb-3" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/media/images/oppenheimer.jpeg" alt="Movie 1" class="d-block w-100" style="object-fit: cover;">
+            </div>
+            <div class="carousel-item">
+                <img src="/media/images/spiderman.jpg" alt="Movie 2" class="d-block w-100" style="object-fit: cover;">
+            </div>
+            <div class="carousel-item">
+                <img src="/media/images/john-wik.jpeg" alt="Movie 3" class="d-block w-100" style="object-fit: cover;">
             </div>
         </div>
-        <!-- <h1>Welcome to the Home Page, <span style="color: red;">{{ name }}</span></h1>
-        <h2>This is the full home page</h2> -->
-        <form action="">
-            <div class="mb-3">
-                <label for="searchMovie" class="form-label">Search for Movie:</label>
-                <input type="text" class="form-control" name="searchMovie">
-            </div>
-            <button type="submit" class="btn btn-primary">Search</button>
-        </form>
-
-        <p>Searching for {{ search_term }}</p>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            {% for movie in movies %}
-                <div class="col" v-for="movie in movies">
-                    <div class="card">
-                        <img src="{{ movie.image.url }}" class="card-img-top" height="400" width="250">
-                        <div class="card-body">
-                            <h4 class="card-title">{{ movie.title }}</h4>
-                            <p class="card-text">{{ movie.description }}</p>
-                            {% if movie.url %}
-                                <a href="{{ movie.url }}" class="btn btn-primary">Watch Now</a>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
+        <a href="#movieCarousel" class="carousel-control-prev" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a href="#movieCarousel" class="carousel-control-next" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
+</div>
+<!-- <h1>Welcome to the Home Page, <span style="color: red;">{{ name }}</span></h1>
+<h2>This is the full home page</h2> -->
+<form action="">
+    <div class="mb-3">
+        <label for="searchMovie" class="form-label">Search for Movie:</label>
+        <input type="text" class="form-control" name="searchMovie">
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</body>
-</html>
+<p>Searching for {{ search_term }}</p>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for movie in movies %}
+        <div class="col" v-for="movie in movies">
+            <div class="card">
+                <img src="{{ movie.image.url }}" class="card-img-top" height="400" width="250">
+                <div class="card-body">
+                    <h4 class="card-title">{{ movie.title }}</h4>
+                    <p class="card-text">{{ movie.description }}</p>
+                    {% if movie.url %}
+                        <a href="{{ movie.url }}" class="btn btn-primary">Watch Now</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+```
